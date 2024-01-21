@@ -9,3 +9,15 @@
     grid-gap: 45px;
     margin: 50px;
 }
+
+.btn-proceed{
+    background-color: #FF9900;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 56px;
+    margin: 10px auto;
+    border-radius: 4px;
+    color: white;
+}
