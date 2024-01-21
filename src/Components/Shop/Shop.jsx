@@ -6,7 +6,7 @@ import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]); // how many items i am taking this quantity
 
     useEffect( () => {
         fetch('products.json')
@@ -32,12 +32,12 @@ const Shop = () => {
         }
         // step-5: set the cart
         setCart(savedCart);
-    }, [products]);
+    }, [products]); // here products is dependency bcz its value changed 
 
     const handleAddToCart = (product) => {
-        // cart.push(product)
+        // cart.push(product)  /* for javascript */
         let newCart = [];
-        // const newCart = [...cart, product];
+        // const newCart = [...cart, product];  /* for react */
         // if product doesn't exist in the cart, then set quantity = 1
         // if exist update quantity by 1
         const exists = cart.find(pd => pd.id === product.id);
@@ -47,7 +47,7 @@ const Shop = () => {
         }
         else{
             exists.quantity = exists.quantity + 1;
-            const remaining = cart.filter(pd => pd.id !== product.id);
+            const remaining = cart.filter(pd => pd.id !== product.id);  // filter holo existing bade baki gula k khuje add kora
             newCart = [...remaining, exists];
         }
         setCart(newCart);

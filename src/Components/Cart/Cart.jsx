@@ -4,15 +4,16 @@ import './Cart.css'
 const Cart = (props) => {
     // const cart = props.cart; // option-1
     const {cart} = props; // option-2
+    console.log(cart);
 
     let total = 0;
     let totalShipping = 0;
     let quantity = 0;
     for(const product of cart){
         // product.quantity = product.quantity || 1; or
-        if(product.quantity === 0){
-            product.quantity = 1;
-        }
+        // if(product.quantity === 0){
+        //     product.quantity = 1;
+        // }
         total = total + product.price * product.quantity;
         totalShipping = totalShipping + product.shipping;
         quantity = quantity + product.quantity;
